@@ -12,13 +12,13 @@
 // geliefert. Wenn der Knoten nicht gefunden wird, wird ein "X" geliefert.
 std::string Node::path(int key_)
 {
-    // anchor
+    // anchor: not found
     if (this->is_empty())
     {
         return "X";
     }
 
-    // anchor
+    // anchor: found
     if (this->key == key_)
     {
         return "";
