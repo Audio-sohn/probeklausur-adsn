@@ -12,22 +12,31 @@
 // geliefert. Wenn der Knoten nicht gefunden wird, wird ein "X" geliefert.
 std::string Node::path(int key_)
 {
-    std::string result = path_rec(key_ root);
+    // anchor
+    if (this->is_empty())
+    {
+        return "X";
+    }
 
-    return ;
-}
-
-std::string path_rec(int key_, Node* root)
-{
-
-    // anchor: found
-    if (root->key == key_)
+    // anchor
+    if (this->key == key_)
     {
         return "";
     }
 
-    if (root->left->is_empty() && root->right->is_empty())
+    // steer left
+    if (this->key > key_)
+    {
+        auto left_res = left->path(key_);
+        return left_res == "X" ? "X" : "L" + left_res;
+    }
 
+    // steer right
+    if (this->key < key_)
+    {
+        auto right_res = right->path(key_);
+        return right_res == "X" ? "X" : "R" + right_res;
+    }
 
-
+    return "";
 }
