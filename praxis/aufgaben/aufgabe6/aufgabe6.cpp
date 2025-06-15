@@ -11,7 +11,33 @@
 // Ist der gesuchte Knoten der Wurzelknoten, wird ein leerer String
 // geliefert. Wenn der Knoten nicht gefunden wird, wird ein "X" geliefert.
 std::string Node::path(int key_)
-{
-    // TODO
-    return "";
+{   
+
+
+
+    // found
+    if (this->key == key_)
+    {
+        return "";
+    }
+    
+    // not found
+    if(this->is_empty()) 
+    {
+        return"X";
+
+    }
+    
+    // steer right
+    if(key_ > this->key)
+    {
+        std::string rec_res = right->path(key_);
+        return rec_res == "X" ? "X" : "R" + rec_res;
+    }
+    
+    // steer left
+    
+    std::string rec_res = left->path(key_);
+    return rec_res == "X" ? "X" : "L" + rec_res;
+
 }

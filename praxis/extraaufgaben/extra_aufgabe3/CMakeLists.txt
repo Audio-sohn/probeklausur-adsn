@@ -1,0 +1,9 @@
+get_filename_component(TASK_DIRNAME ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+set(TASK_TEST_TARGET ${STUDENT_PREFIX}_${TASK_DIRNAME})
+set(TASK_TEST_FILE ${TASK_DIRNAME}_tests.cpp)
+set(TASK_SOURCE_FILE ${TASK_DIRNAME}.cpp)
+set(TASK_HEADER_FILE ${TASK_DIRNAME}.h)
+
+add_executable(${TASK_TEST_TARGET} ${TASK_TEST_FILE} ${TASK_SOURCE_FILE} ${TASK_HEADER_FILE})
+target_link_libraries(${TASK_TEST_TARGET} Catch2::Catch2WithMain)
+catch_discover_tests(${TASK_TEST_TARGET})

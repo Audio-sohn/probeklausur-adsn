@@ -1,0 +1,3 @@
+add_subdirectory(extra_aufgabe3)
+add_subdirectory(extra_aufgabe4)
+add_subdirectory(extra_aufgabe5)

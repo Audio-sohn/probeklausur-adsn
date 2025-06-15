@@ -7,6 +7,10 @@
 // Liefert die Laenge der Liste, beginnend mit `this`.
 size_t Element::length()
 {
-    // TODO
-    return 0;
+    if (next == nullptr)
+    {
+        return 0;
+    }
+
+    return this->is_empty() ? 1 : 1 + next->length();
 }

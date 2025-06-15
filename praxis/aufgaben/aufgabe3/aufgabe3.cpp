@@ -8,6 +8,18 @@
 // Falls `this` ein leeres Element ist, wird ein leerer Vektor geliefert.
 std::vector<int> Element::values()
 {
-    // TODO
-    return {};
+    std::vector<int> result{};
+    
+    if (this->is_empty())
+    {
+        return {};
+    }
+    
+    result.push_back(this->value);
+
+    auto recursive_result = next->values();
+
+    result.insert(result.end(), recursive_result.begin(), recursive_result.end());
+
+    return result;
 }

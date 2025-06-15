@@ -20,6 +20,7 @@ include(Catch)
 
 set(EXAM_PREFIX probeklausur)
 add_subdirectory(aufgaben)
+add_subdirectory(extraaufgaben)
 
 cmake_path(SET GITIGNORE_FILE NORMALIZE "${CMAKE_BINARY_DIR}/.gitignore")
 file(WRITE ${GITIGNORE_FILE} "*")
